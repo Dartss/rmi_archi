@@ -17,7 +17,6 @@ public class GeneratorImpl implements Generator {
 	public void generate(int personsAmount) {
 		logger.log(Level.INFO, "Start generating");
 		
-		LinkedList<String> names = loadNames();
 		LinkedList<Person> personsList = null;
 		Person newPerson;
 		//Generate random persons
@@ -31,7 +30,7 @@ public class GeneratorImpl implements Generator {
 			}
 			
 			//Add random relationships for each person
-			newPerson = new Person(generateName(names), randomAge, isStupid);
+			newPerson = new Person(generateName(), randomAge, isStupid);
 			newPerson.addRelationship("Friends", randomInt(10 + j));
 			newPerson.addRelationship("Friends", randomInt(10 + j));
 			newPerson.addRelationship("Friends", randomInt(10 + j));
@@ -48,38 +47,70 @@ public class GeneratorImpl implements Generator {
 		}		
 	}
 	
-	private LinkedList<String> loadNames() {
+	private LinkedList<String> loadFirstNames() {
 		LinkedList<String> names = new LinkedList<String>();
 		names.add("Zloi");
+		names.add("Golodniy");
+		names.add("Skuchniy");
+		names.add("Triapka");
+		names.add("Nemoi");
+		names.add("Kisliy");
+		names.add("Sobaka");
+		names.add("Brehun");
+		names.add("Neznaika");
+		names.add("Glavniy");
+		names.add("Bolshoi");
+		names.add("Sladkiy");
+		names.add("Mazohist");
+		names.add("Crazy");
+		names.add("Neopitniy");
+		names.add("Narkoman");
+		names.add("Prostitutka");
+		names.add("Sosok");
+		names.add("Poriadochniy");
+		names.add("Otstaliy");
+		names.add("Slepoiy");
+		names.add("Zanuda");
+		names.add("Goluboiy");
+		names.add("Bedniy");
+		return names;
+	}
+	
+	private LinkedList<String> loadLastNames() {
+		LinkedList<String> names = new LinkedList<String>();
+		names.add("Evreiy");
 		names.add("Perdun");
 		names.add("Tarakan");
 		names.add("Zadok");
-		names.add("Nemoi");
+		names.add("Tolik");
 		names.add("Konan");
-		names.add("Sobaka");
+		names.add("Perdak");
 		names.add("Kran");
 		names.add("Stoyak");
-		names.add("Glaznica");
+		names.add("Tupen");
 		names.add("Anusik");
 		names.add("Vor");
-		names.add("Oleg");
-		names.add("Crazy");
-		names.add("Neponiatniy");
+		names.add("Android");
+		names.add("TeamLead");
+		names.add("Kolokol");
 		names.add("Salat");
 		names.add("Blevok");
 		names.add("Sosok");
-		names.add("Love");
+		names.add("Shahid");
 		names.add("Produkt");
 		names.add("Ochko");
-		names.add("Hava");
-		names.add("Nagila");
+		names.add("Krikun");
+		names.add("Vitalik");
 		names.add("Potniak");
 		return names;
 	}
 	
-	private String generateName(LinkedList<String> names){
-		String firstName = names.get(randomInt(names.size()));
-		String lastName = names.get(randomInt(names.size()));
+	private String generateName(){
+		LinkedList<String> first = loadFirstNames();
+		LinkedList<String> last = loadLastNames();
+		int amount = first.size();
+		String firstName = first.get(randomInt(amount));
+		String lastName = last.get(randomInt(amount));
 		return (firstName + " " + lastName);
 	}
 	
