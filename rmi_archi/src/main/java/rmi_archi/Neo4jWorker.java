@@ -24,7 +24,6 @@ public class Neo4jWorker implements Runnable {
 	}
 	
 	public void run() {
-		session.run("match (n) detach delete n");
 		pushListToDb();
 		session.close();
 		driver.close();

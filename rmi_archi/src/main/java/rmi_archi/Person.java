@@ -11,7 +11,7 @@ public class Person implements Serializable{
 	private String name;
 	private int age;
 	private boolean isStupid;
-	private static int idCounter = 0;
+	private static int idCounter = 1;
 	private int id;
 	private HashMap<Long, String> relationships;
 	
@@ -53,6 +53,14 @@ public class Person implements Serializable{
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public void setId(int id) {
+		if (this.id == 0) {			
+			this.id = id;
+		} else {
+			System.out.println("Person already has ID");
+		}
 	}
 	
 	public void addRelationship(String relationshipName, long targetId) {

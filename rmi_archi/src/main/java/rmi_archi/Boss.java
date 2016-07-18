@@ -58,7 +58,7 @@ public class Boss implements BossMethods {
 	
 	public static void main(String[] args) {
 		Boss server = new Boss();
-		 
+		
         try {
             BossMethods stub = (BossMethods)UnicastRemoteObject.exportObject(server, 0);
                
